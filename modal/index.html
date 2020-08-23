@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./modal.js"></script>
+</head>
+<body>
+    <my-modal>
+        <h1 slot="heading">Please Confirm</h1>
+        Please confirm to delete this item.
+    </my-modal>
+    <div>
+        <p>Click the below button to open the modal</p>
+        <button>Modal</button>
+    </div>
+
+    <script>
+        const myModal = document.querySelector('my-modal');
+        document.querySelector('button').addEventListener('click', () => {
+            myModal.open();
+        });
+        myModal.addEventListener('confirm', () => {
+            console.log('confirmed');
+        });
+        myModal.addEventListener('cancel', () => {
+            console.log('cancelled');
+        })
+    </script>
+</body>
+</html>
